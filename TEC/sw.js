@@ -1,6 +1,6 @@
-// Nombre del cache
+
 const CACHE_NAME = 'alumnos-cache-v1';
-// Archivos a cachear
+
 const urlsToCache = [
   '/',
   '/index.html',
@@ -9,7 +9,7 @@ const urlsToCache = [
   '/sw.js'
 ];
 
-// Instalación del Service Worker
+
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -20,7 +20,7 @@ self.addEventListener('install', function(event) {
   );
 });
 
-// Recuperar archivos del cache
+
 self.addEventListener('fetch', function(event) {
   event.respondWith(
     caches.match(event.request)
@@ -30,7 +30,7 @@ self.addEventListener('fetch', function(event) {
   );
 });
 
-// Actualizar el Service Worker
+
 self.addEventListener('activate', function(event) {
   const cacheWhitelist = [CACHE_NAME];
   event.waitUntil(
